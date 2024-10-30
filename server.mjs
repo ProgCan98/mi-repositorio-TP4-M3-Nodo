@@ -3,6 +3,7 @@ import {
   obtenerSuperheroePorIdController,
   buscarSuperheroesPorAtributoController,
   obtenerSuperheroesMayoresde30Controller,
+  obtenerSuperheroesController,
 } from './controllers/superheroesController.mjs';
 
 const app = express();
@@ -14,6 +15,8 @@ app.get(
   buscarSuperheroesPorAtributoController
 );
 app.get('/superheroes/edad/mayorA30', obtenerSuperheroesMayoresde30Controller);
+
+app.get('/superheroes', obtenerSuperheroesController);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriento en el puerto ${PORT}`);

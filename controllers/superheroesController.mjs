@@ -2,16 +2,16 @@ import {
   obtenerSuperheroePorId,
   buscarSuperheroesPorAtributo,
   obtenerSuperheroesMayoresde30,
-  obtenerSuperheroesPorId,
+  obtenerSuperheroes,
 } from '../services/superheroesService.mjs';
 import {
   renderizarSuperheroe,
   renderizarListaSuperheroes,
 } from '../views/responseView.mjs';
 
-export function obtenerSuperheroesPorIdController(req, res) {
+export function obtenerSuperheroePorIdController(req, res) {
   const { id } = req.params;
-  const superheroe = obtenerSuperheroesPorId(parseInt(id));
+  const superheroe = obtenerSuperheroePorId(parseInt(id));
 
   if (superheroe) {
     res.send(renderizarSuperheroe(superheroe));
@@ -36,4 +36,14 @@ export function buscarSuperheroesPorAtributoController(req, res) {
 export function obtenerSuperheroesMayoresde30Controller(req, res) {
   const superheroes = obtenerSuperheroesMayoresde30();
   res.send(renderizarListaSuperheroes(superheroes));
+}
+
+export function obtenerSuperheroesController(req, res) {
+  const superheroes = obtenerSuperheroes();
+
+  if (superheroes) {
+    res.send(renderizarListaSuperheroes(superheroes));
+  } else {
+    res.status(404).send({ mensaje: 'Super heroe no encontrado' });
+  }
 }

@@ -1,5 +1,5 @@
 export default class SuperheroesDataSource {
   obtenerTodos() {
-    throw new Error('Este meodo debe ser implementado por la subclase');
+    throw new Error('Este metodo debe ser implementado por la subclase');
   }
 }
