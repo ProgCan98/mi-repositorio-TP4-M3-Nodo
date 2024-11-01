@@ -3,6 +3,7 @@ import {
   buscarSuperheroesPorAtributo,
   obtenerSuperheroesMayoresde30,
   obtenerSuperheroes,
+  obtenerSuperheroesMenoresde30,
 } from '../services/superheroesService.mjs';
 import {
   renderizarSuperheroe,
@@ -46,4 +47,9 @@ export function obtenerSuperheroesController(req, res) {
   } else {
     res.status(404).send({ mensaje: 'Super heroe no encontrado' });
   }
+}
+
+export function obtenerSuperheroesMenoresde30Controller(req, res) {
+  const superheroes = obtenerSuperheroesMenoresde30();
+  res.send(renderizarListaSuperheroes(superheroes));
 }
